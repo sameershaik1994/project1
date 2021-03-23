@@ -1,1 +1,28 @@
 Hello-world-sameer
+
+# Controls when the action will run.
+on:
+# Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:[main]
+    jobs:
+    # This workflow contains a single job called "build"
+    build:
+    # This type of runner that the job will run on
+    run-on:ubuntu-latest
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-Out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - user : action/checkout@v2
+    
+    # Run a single command using thr runner shell
+    -name: Run s one-line script
+    run: echo Hello, World!
+    
+    # Run a single command using thr runner shell
+    -name: Run s multiple-line script
+    run: |
+     echo Add other actions to build
+     echo test, and deploynyour project
